@@ -1,0 +1,165 @@
+div.mainContent{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+
+/*///// Batting Order部 /////*/
+div.outline {
+  width: 470px;
+  margin: 5px;
+  padding: 5px;
+  background-color: green;
+  /* float: left; */
+}
+
+h2.title1 {
+  padding-left: 5px;
+}
+
+.order {
+  width: 450px;
+  height: 60px;
+  margin: 5px;
+  padding: 3px;
+  border: solid 1px black;
+  background-color: white;
+  /* display: flex; */
+  border-left: solid 5px yellow;
+}
+
+.name {
+  margin-right: 5px;
+}
+
+label {
+  margin-left: 5px;
+}
+
+.numberOfGame {
+  width: 95px;
+}
+
+.positionSelect {
+  margin-left: 10px;
+}
+
+.statsDisplay {
+  display: flex;
+  height: 30px;
+  /* margin-bottom: 20px; */
+  /* border: solid 1px black; */
+}
+
+p {
+  /* position: absolute;
+  left: 5px;
+  bottom: 5px; */
+  /* margin-top: 10px; */
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 80%;
+}
+
+input {
+  height: 20px;
+}
+
+
+/*///// Diffence Position部 /////*/
+h2.title2 {
+  padding-left: 20px;
+}
+
+div.diffence {
+  display: flex;
+  position: relative;
+}
+
+.diffence img {
+  width: 500px;
+  height: 500px;
+  margin-left: 20px;
+}
+
+#pitcher {
+  position: absolute;
+  top: 315px;
+  left: 245px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#catcher {
+  position: absolute;
+  top: 430px;
+  left: 245px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#firstBaseMan {
+  position: absolute;
+  top: 290px;
+  left: 330px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#secondBaseMan {
+  position: absolute;
+  top: 240px;
+  left: 300px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#thirdBaseMan {
+  position: absolute;
+  top: 290px;
+  left: 150px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#shortStop {
+  position: absolute;
+  top: 240px;
+  left: 180px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#left {
+  position: absolute;
+  top: 150px;
+  left: 120px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#center {
+  position: absolute;
+  top: 120px;
+  left: 245px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#right {
+  position: absolute;
+  top: 150px;
+  left: 370px;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
