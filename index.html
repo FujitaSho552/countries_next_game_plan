@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <script type="text/javascript" src="modules/lodash.js"></script>
+  <script type="text/javascript" src="modules/test-boilerplate.js"></script>
+  <script type="text/javascript" src="record.js"></script>
+
+</head>
+
+<body>
+  <link rel="stylesheet" href="presen.css">
+  <h1>⚾️Next Game Plan⚾️</h1>
+  <h2 class="title1">Member</h2>
+  <div>
+    <label><input type="checkbox" name="member" value="黒川">黒川</label>
+    <label><input type="checkbox" name="member" value="藤田">藤田</label>
+    <label><input type="checkbox" name="member" value="杉浦">杉浦</label>
+    <label><input type="checkbox" name="member" value="米田">米田</label>
+    <label><input type="checkbox" name="member" value="久木田">久木田</label>
+    <label><input type="checkbox" name="member" value="西">西</label>
+    <label><input type="checkbox" name="member" value="田前">田前</label>
+    <label><input type="checkbox" name="member" value="鬼塚">鬼塚</label>
+    <label><input type="checkbox" name="member" value="下町">下町</label>
+    <label><input type="checkbox" name="member" value="枝元">枝元</label>
+    <label><input type="checkbox" name="member" value="比嘉">比嘉</label>
+    <label><input type="checkbox" name="member" value="前野">前野</label>
+    <label><input type="checkbox" name="member" value="後潟">後潟</label>
+    <label><input type="checkbox" name="member" value="助っ人1">助っ人1</label>
+    <label><input type="checkbox" name="member" value="助っ人2">助っ人2</label>
+  </div>
+  <button id="buttonM1" class="memberButton">ok</button>
+  <div class="mainContent">
+    <section class="left">
+    <h2 class="title1">Batting Order</h2>
+      <div class="outline">
+        <div class="order" name="1">1
+          <select id="memberList1"></select> 
+          <label >stats: <input type="number" id="gameOne" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <button id="button1">↓ check</button>  
+          <select id="positionOne" class="positionSelect">
+            <option>P</option><option>C</option><option>1B</option><option>2B</option>
+            <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
+          </select>
+          <button id="buttonP1" class="positionButton">=></button>   
+          <div class="statsDisplay">
+            <p>AVG:</p><p id="avg1"></p>
+            <p>OBP:</p><p id="obp1"></p>
+            <p>SLG:</p><p id="slg1"></p>
+            <p>HR:</p><p id="hr1"></p>
+            <p>SB:</p><p id="sb1"></p>
+          </div>
+        </div>
+        <div class="order" name="2">2
+          <select id="memberList2"></select>
+          <label>stats: <input type="number" id="gameTwo" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <button id="button2">↓ check</button>
+          <select id="positionTwo" class="positionSelect">
+            <option>P</option><option>C</option><option>1B</option><option>2B</option>
+            <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
+          </select>
+          <button id="buttonP2" class="positionButton">=></button>    
+          <div class="statsDisplay">
+            <p>AVG:</p><p id="avg2"></p>
+            <p>OBP:</p><p id="obp2"></p>
+            <p>SLG:</p><p id="slg2"></p>
+            <p>HR:</p><p id="hr2"></p>
+            <p>SB:</p><p id="sb2"></p>
+          </div>
+        </div>
+        <div class="order" name="3">3
+          <select id="memberList3"></select> 
+          <label>stats: <input type="number" id="gameThree" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <button id="button3">↓ check</button>
+          <select id="positionThree" class="positionSelect">
+            <option>P</option><option>C</option><option>1B</option><option>2B</option>
+            <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
+          </select>
+          <button id="buttonP3" class="positionButton">=></button>   
+          <div class="statsDisplay">
+            <p>AVG:</p><p id="avg3"></p>
+            <p>OBP:</p><p id="obp3"></p>
+            <p>SLG:</p><p id="slg3"></p>
+            <p>HR:</p><p id="hr3"></p>
+            <p>SB:</p><p id="sb3"></p>
+          </div>
+        </div>         
+        <div class="order" name="4">4
+          <select id="memberList4"></select> 
+          <label>stats: <input type="number" id="gameFour" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <button id="button4">↓ check</button>
+          <select id="positionFour" class="positionSelect">
+            <option>P</option><option>C</option><option>1B</option><option>2B</option>
+            <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
+          </select>
+          <button id="buttonP4" class="positionButton">=></button>    
+          <div class="statsDisplay">
+            <p>AVG:</p><p id="avg4"></p>
+            <p>OBP:</p><p id="obp4"></p>
+            <p>SLG:</p><p id="slg4"></p>
+            <p>HR:</p><p id="hr4"></p>
+            <p>SB:</p><p id="sb4"></p>
+          </div>
+        </div>
+        <div class="order" name="5">5
+          <select id="memberList5"></select> 
+          <label>stats: <input type="number" id="gameFive" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <button id="button5">↓ check</button>
+          <select id="positionFive" class="positionSelect">
+            <option>P</option><option>C</option><option>1B</option><option>2B</option>
+            <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
+          </select>
+          <button id="buttonP5" class="positionButton">=></button>     
+          <div class="statsDisplay">
+            <p>AVG:</p><p id="avg5"></p>
+            <p>OBP:</p><p id="obp5"></p>
+            <p>SLG:</p><p id="slg5"></p>
+            <p>HR:</p><p id="hr5"></p>
+            <p>SB:</p><p id="sb5"></p>
+          </div>
+        </div>
+        <div class="order" name="6">6
+          <select id="memberList6"></select> 
+          <label>stats: <input type="number" id="gameSix" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <button id="button6">↓ check</button> 
+          <select id="positionSix" class="positionSelect">
+            <option>P</option><option>C</option><option>1B</option><option>2B</option>
+            <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
+          </select>
+          <button id="buttonP6" class="positionButton">=></button>   
+          <div class="statsDisplay">
+            <p>AVG:</p><p id="avg6"></p>
+            <p>OBP:</p><p id="obp6"></p>
+            <p>SLG:</p><p id="slg6"></p>
+            <p>HR:</p><p id="hr6"></p>
+            <p>SB:</p><p id="sb6"></p>
+          </div>
+        </div>
+        <div class="order" name="7">7
+          <select id="memberList7"></select>
+          <label>stats: <input type="number" id="gameSeven" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <button id="button7">↓ check</button>
+          <select id="positionSeven" class="positionSelect">
+            <option>P</option><option>C</option><option>1B</option><option>2B</option>
+            <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
+          </select>
+          <button id="buttonP7" class="positionButton">=></button>      
+          <div class="statsDisplay">
+            <p>AVG:</p><p id="avg7"></p>
+            <p>OBP:</p><p id="obp7"></p>
+            <p>SLG:</p><p id="slg7"></p>
+            <p>HR:</p><p id="hr7"></p>
+            <p>SB:</p><p id="sb7"></p>
+          </div>
+        </div>
+        <div class="order" name="8">8
+          <select id="memberList8"></select>
+          <label>stats: <input type="number" id="gameEight" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <button id="button8">↓ check</button>
+          <select id="positionEight" class="positionSelect">
+            <option>P</option><option>C</option><option>1B</option><option>2B</option>
+            <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
+          </select>
+          <button id="buttonP8" class="positionButton">=></button>     
+          <div class="statsDisplay">
+            <p>AVG:</p><p id="avg8"></p>
+            <p>OBP:</p><p id="obp8"></p>
+            <p>SLG:</p><p id="slg8"></p>
+            <p>HR:</p><p id="hr8"></p>
+            <p>SB:</p><p id="sb8"></p>
+          </div>
+        </div>
+        <div class="order" name="9">9
+          <select id="memberList9"></select>
+          <label>stats: <input type="number" id="gameNine" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <button id="button9">↓ check</button>
+          <select id="positionNine" class="positionSelect">
+            <option>P</option><option>C</option><option>1B</option><option>2B</option>
+            <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
+          </select>
+          <button id="buttonP9" class="positionButton">=></button>     
+          <div class="statsDisplay">
+            <p>AVG:</p><p id="avg9"></p>
+            <p>OBP:</p><p id="obp9"></p>
+            <p>SLG:</p><p id="slg9"></p>
+            <p>HR:</p><p id="hr9"></p>
+            <p>SB:</p><p id="sb9"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="right">
+    <h2 class="title2">Position</h2>
+      <div class="diffence">
+        <img src="field.png"/>
+        <p id="pitcher"></p>
+        <p id="catcher"></p>
+        <p id="firstBaseMan"></p>
+        <p id="secondBaseMan"></p>
+        <p id="thirdBaseMan"></p>
+        <p id="shortStop"></p>
+        <p id="left"></p>
+        <p id="center"></p>
+        <p id="right"></p>
+      </div>
+    </section>
+  </div>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
