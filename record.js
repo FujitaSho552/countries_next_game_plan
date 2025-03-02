@@ -1,4 +1,125 @@
 const record = [
+  [  // 2025.3.2
+      {
+        "黒川" : {
+        PA: 3,
+        atBat: 3,
+        single: 1,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 1,
+        }
+      },
+      {
+        "藤田" : {
+        PA: 4,
+        atBat: 3,
+        single: 1,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 2,
+        clutchHit: 1,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 1,
+        BB: 1,
+        K: 0,
+        }  
+      },
+      {
+        "杉浦" : {
+        PA: 3,
+        atBat: 3,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 0,
+        }
+      },
+      {
+        "鬼塚" : {
+        PA: 3,
+        atBat: 1,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 2,
+        K: 0,
+        }
+      },
+      {
+        "下町" : {
+        PA: 4,
+        atBat: 4,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 2,
+        }
+      },
+      {
+        "枝元" : {
+        PA: 3,
+        atBat: 3,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 0,
+        }
+      },
+      {
+        "比嘉" : {
+        PA: 3,
+        atBat: 3,
+        single: 1,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 0,
+        }
+      },
+  ],
   [  // 2024.11.24
       {
         "黒川" : {
