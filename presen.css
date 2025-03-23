@@ -4,8 +4,22 @@ div.mainContent{
   justify-content: flex-start;
 }
 
+/*///// Member Average部 /////*/
+.memberAverage {
+  margin: 5px;
+}
 
 /*///// Batting Order部 /////*/
+#statsCheckAll {
+  margin-left: 15px;
+  width: 35px;
+  background-color: antiquewhite;
+}
+
+#moveAll {
+  margin-left: 15px;
+}
+
 div.outline {
   width: 470px;
   margin: 5px;
@@ -39,6 +53,7 @@ label {
 
 .numberOfGame {
   width: 95px;
+  background-color: antiquewhite;
 }
 
 .positionSelect {
