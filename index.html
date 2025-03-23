@@ -14,8 +14,8 @@
 <body>
   <link rel="stylesheet" href="presen.css">
   <h1>⚾️Next Game Plan⚾️</h1>
-  <h2 class="title1">Member</h2>
   <div>
+  <h2 class="title1">Member</h2>
     <label><input type="checkbox" name="member" value="黒川">黒川</label>
     <label><input type="checkbox" name="member" value="藤田">藤田</label>
     <label><input type="checkbox" name="member" value="杉浦">杉浦</label>
@@ -33,13 +33,21 @@
     <label><input type="checkbox" name="member" value="助っ人2">助っ人2</label>
   </div>
   <button id="buttonM1" class="memberButton">ok</button>
+  <div>
+    <h2 class="memberAverage">Select Member's average</h2>
+    <div>AVG: </div>
+  </div>
   <div class="mainContent">
     <section class="left">
-    <h2 class="title1">Batting Order</h2>
+    <h2 class="title1">Batting Order <input type="number" id="statsCheckAll" min="1"/>
+    <button id="inputAll">↓ input all</button>
+    <button id="checkAll">check all</button>
+    <button id="moveAll">all =></button>
+  </h2>
       <div class="outline">
         <div class="order" name="1">1
           <select id="memberList1"></select> 
-          <label >stats: <input type="number" id="gameOne" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <label >stats: <input type="number" id="gameOne" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button1">↓ check</button>  
           <select id="positionOne" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
@@ -56,7 +64,7 @@
         </div>
         <div class="order" name="2">2
           <select id="memberList2"></select>
-          <label>stats: <input type="number" id="gameTwo" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <label>stats: <input type="number" id="gameTwo" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button2">↓ check</button>
           <select id="positionTwo" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
@@ -73,7 +81,7 @@
         </div>
         <div class="order" name="3">3
           <select id="memberList3"></select> 
-          <label>stats: <input type="number" id="gameThree" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <label>stats: <input type="number" id="gameThree" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button3">↓ check</button>
           <select id="positionThree" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
@@ -90,7 +98,7 @@
         </div>         
         <div class="order" name="4">4
           <select id="memberList4"></select> 
-          <label>stats: <input type="number" id="gameFour" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <label>stats: <input type="number" id="gameFour" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button4">↓ check</button>
           <select id="positionFour" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
@@ -107,7 +115,7 @@
         </div>
         <div class="order" name="5">5
           <select id="memberList5"></select> 
-          <label>stats: <input type="number" id="gameFive" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <label>stats: <input type="number" id="gameFive" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button5">↓ check</button>
           <select id="positionFive" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
@@ -124,7 +132,7 @@
         </div>
         <div class="order" name="6">6
           <select id="memberList6"></select> 
-          <label>stats: <input type="number" id="gameSix" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <label>stats: <input type="number" id="gameSix" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button6">↓ check</button> 
           <select id="positionSix" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
@@ -141,7 +149,7 @@
         </div>
         <div class="order" name="7">7
           <select id="memberList7"></select>
-          <label>stats: <input type="number" id="gameSeven" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <label>stats: <input type="number" id="gameSeven" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button7">↓ check</button>
           <select id="positionSeven" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
@@ -158,7 +166,7 @@
         </div>
         <div class="order" name="8">8
           <select id="memberList8"></select>
-          <label>stats: <input type="number" id="gameEight" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <label>stats: <input type="number" id="gameEight" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button8">↓ check</button>
           <select id="positionEight" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
@@ -175,7 +183,7 @@
         </div>
         <div class="order" name="9">9
           <select id="memberList9"></select>
-          <label>stats: <input type="number" id="gameNine" class="numberOfGame" placeholder="Last ? games" min="1" max="5"/></label>
+          <label>stats: <input type="number" id="gameNine" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button9">↓ check</button>
           <select id="positionNine" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
