@@ -509,3 +509,61 @@ moveNine.addEventListener("click", displayPositionNine);
 const nameNine = document.getElementById("memberList9");
 const createListNine = document.getElementById("buttonM1");
 createListNine.addEventListener("click", member);
+
+/////全枠に数字を入れるイベント
+function inputAll() {
+  const inputAllNumber = document.getElementById("statsCheckAll");
+  const lastGameOne = document.getElementById("gameOne");
+  const lastGameTwo = document.getElementById("gameTwo");
+  const lastGameThree = document.getElementById("gameThree");
+  const lastGameFour = document.getElementById("gameFour");
+  const lastGameFive = document.getElementById("gameFive");
+  const lastGameSix = document.getElementById("gameSix");
+  const lastGameSeven = document.getElementById("gameSeven");
+  const lastGameEight = document.getElementById("gameEight");
+  const lastGameNine = document.getElementById("gameNine");
+  lastGameOne.value = inputAllNumber.value;
+  lastGameTwo.value = inputAllNumber.value;
+  lastGameThree.value = inputAllNumber.value;
+  lastGameFour.value = inputAllNumber.value;
+  lastGameFive.value = inputAllNumber.value;
+  lastGameSix.value = inputAllNumber.value;
+  lastGameSeven.value = inputAllNumber.value;
+  lastGameEight.value = inputAllNumber.value;
+  lastGameNine.value = inputAllNumber.value;
+}
+
+const inputNumber = document.getElementById("inputAll");
+inputNumber.addEventListener("click", inputAll);
+
+/////全枠の値を表示させるイベント
+function checkAll() {
+  displayNumberOne();
+  displayNumberTwo();
+  displayNumberThree();
+  displayNumberFour();
+  displayNumberFive();
+  displayNumberSix();
+  displayNumberSeven();
+  displayNumberEight();
+  displayNumberNine();
+}
+
+const checkAllButton = document.getElementById("checkAll");
+checkAllButton.addEventListener("click", checkAll);
+
+/////全枠の守備位置を移動させるイベント
+function moveAll() {
+  displayPositionOne();
+  displayPositionTwo();
+  displayPositionThree();
+  displayPositionFour();
+  displayPositionFive();
+  displayPositionSix();
+  displayPositionSeven();
+  displayPositionEight();
+  displayPositionNine();
+}
+
+const moveAllButton = document.getElementById("moveAll");
+moveAllButton.addEventListener("click", moveAll);
