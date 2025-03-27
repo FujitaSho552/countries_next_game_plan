@@ -28,6 +28,39 @@ function avg(name, num) {
 // test(avg("Fujita", 1), 0.250);
 // console.log(avg("BBB"));
 
+/////select member average 選択メンバーの打率
+/**
+ * @returns {number} 打率を計算する
+ */
+function selectMemberAvg() {
+  let elements = document.getElementsByName("member");
+  let length = elements.length;
+  let average = 0;
+  let sumHit = 0;
+  let sumAtBat = 0;
+  const selectMember = [];
+  
+  for (let i = 0; i < length; i++) {
+    if (elements[i].checked) {
+      selectMember.push(elements[i].value);
+    }
+  }
+  for (let j = 0; j < selectMember.length; j++) {
+    for (const gameData of record) {
+      for (const personalData of gameData) {
+        if (personalData[selectMember[j]]) {
+          sumHit = sumHit + personalData[selectMember[j]]["single"] + personalData[selectMember[j]]["double"] + personalData[selectMember[j]]["triple"] + personalData[selectMember[j]]["HR"];
+          sumAtBat = sumAtBat + personalData[selectMember[j]]["atBat"];
+        }
+      }
+    }
+  }
+  // console.log(sumAtBat); // 黒川 12 藤田 19
+  // console.log(sumHit); // 黒川 3 藤田 6
+  average = sumHit / sumAtBat;
+  return `${average.toFixed(3)} (${sumAtBat} - ${sumHit})`
+}
+
 /////On Base Percentage 出塁率
 /**
  * @param {string} name - 結果を表示したい人の名前
@@ -110,6 +143,25 @@ function sb(name, num) {
     }
   }
   return numberOfSb;
+}
+
+/////Strike out
+/**
+ * @param {string} name - 結果を表示したい人の名前
+ * @param {number} num - 計算したい試合数
+ * @returns {number} 三振数を合計する
+ */
+function k(name, num) {
+  let numberOfK = 0;
+
+  for (let i = 0; i <= num - 1; i++) {
+    for (const personalData of record[i]) {
+      if (personalData[name]) {
+        numberOfK = numberOfK + personalData[name]["K"];
+      }
+    }
+  }
+  return numberOfK;
 }
 
 /////守備位置へ名前転記
@@ -240,6 +292,17 @@ function member() {
   }
 }
 
+///// 選択メンバーの打率を表示するイベント
+function displaySelectMemberAvg() {
+  const displayAvg = document.getElementById("memberAvg");
+  displayAvg.innerText = selectMemberAvg();
+}
+const okButton = document.getElementById("buttonM1");
+okButton.addEventListener("click", displaySelectMemberAvg);
+
+///// 守備位置の初期値 defaultPosition の関数で参照
+const personalPosition = {"黒川": "P", "藤田": "C", "杉浦": "3B", "米田": "LF", "久木田": "CF", "西": "SS", "田前": "SS", "鬼塚": "1B", "下町": "2B", "枝元": "RF", "比嘉": "2B", "前野": "SS", "後潟": "CF",};
+
 ///// 1 枠目のイベント
 function displayNumberOne() {
   const statsOneAvg = document.getElementById("avg1");
@@ -247,6 +310,7 @@ function displayNumberOne() {
   const statsOneSlg = document.getElementById("slg1");
   const statsOneHr = document.getElementById("hr1");
   const statsOneSb = document.getElementById("sb1");
+  const statsOneK = document.getElementById("K1");
   let personalName = document.getElementById("memberList1");
   let lastGameOne = document.getElementById("gameOne");
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
@@ -254,10 +318,12 @@ function displayNumberOne() {
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
+  statsOneK.innerText = k(personalName.value, lastGameOne.value);
 }
 const checkOne = document.getElementById("button1");
 checkOne.addEventListener("click", displayNumberOne);
 
+// 守備位置へ移動
 function displayPositionOne() {
   let personalName = document.getElementById("memberList1");
   const positionSelect = document.getElementById("positionOne");
@@ -266,9 +332,18 @@ function displayPositionOne() {
 const moveOne = document.getElementById("buttonP1");
 moveOne.addEventListener("click", displayPositionOne);
 
+// メンバーリストのオプション作成
 const nameOne = document.getElementById("memberList1");
-const createListOne = document.getElementById("buttonM1");
-createListOne.addEventListener("click", member);
+// const createListOne = document.getElementById("buttonM1");
+okButton.addEventListener("click", member);
+
+// 守備位置の初期値
+function defaultPositionOne() {
+  const memberName = document.getElementById("memberList1");
+  const position = document.getElementById("positionOne");
+  position.value = personalPosition[memberName.value];
+}
+nameOne.addEventListener("change", defaultPositionOne);
 
 ///// 2 枠目のイベント
 function displayNumberTwo() {
@@ -277,6 +352,7 @@ function displayNumberTwo() {
   const statsOneSlg = document.getElementById("slg2");
   const statsOneHr = document.getElementById("hr2");
   const statsOneSb = document.getElementById("sb2");
+  const statsOneK = document.getElementById("K2");
   let personalName = document.getElementById("memberList2");
   let lastGameOne = document.getElementById("gameTwo");
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
@@ -284,10 +360,12 @@ function displayNumberTwo() {
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
+  statsOneK.innerText = k(personalName.value, lastGameOne.value);
 }
 const checkTwo = document.getElementById("button2");
 checkTwo.addEventListener("click", displayNumberTwo);
 
+// 守備位置へ移動
 function displayPositionTwo() {
   let personalName = document.getElementById("memberList2");
   const positionSelect = document.getElementById("positionTwo");
@@ -296,9 +374,18 @@ function displayPositionTwo() {
 const moveTwo = document.getElementById("buttonP2");
 moveTwo.addEventListener("click", displayPositionTwo);
 
+// メンバーリストのオプション作成
 const nameTwo = document.getElementById("memberList2");
 const createListTwo = document.getElementById("buttonM1");
 createListTwo.addEventListener("click", member);
+
+// 守備位置の初期値
+function defaultPositionTwo() {
+  const memberName = document.getElementById("memberList2");
+  const position = document.getElementById("positionTwo");
+  position.value = personalPosition[memberName.value];
+}
+nameTwo.addEventListener("change", defaultPositionTwo);
 
 ///// 3 枠目のイベント
 function displayNumberThree() {
@@ -307,6 +394,7 @@ function displayNumberThree() {
   const statsOneSlg = document.getElementById("slg3");
   const statsOneHr = document.getElementById("hr3");
   const statsOneSb = document.getElementById("sb3");
+  const statsOneK = document.getElementById("K3");
   let personalName = document.getElementById("memberList3");
   let lastGameOne = document.getElementById("gameThree");
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
@@ -314,10 +402,12 @@ function displayNumberThree() {
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
+  statsOneK.innerText = k(personalName.value, lastGameOne.value);
 }
 const checkThree = document.getElementById("button3");
 checkThree.addEventListener("click", displayNumberThree);
 
+// 守備位置へ移動
 function displayPositionThree() {
   let personalName = document.getElementById("memberList3");
   const positionSelect = document.getElementById("positionThree");
@@ -326,9 +416,18 @@ function displayPositionThree() {
 const moveThree = document.getElementById("buttonP3");
 moveThree.addEventListener("click", displayPositionThree);
 
+// メンバーリストのオプション作成
 const nameThree = document.getElementById("memberList3");
 const createListThree = document.getElementById("buttonM1");
 createListThree.addEventListener("click", member);
+
+// 守備位置の初期値
+function defaultPositionThree() {
+  const memberName = document.getElementById("memberList3");
+  const position = document.getElementById("positionThree");
+  position.value = personalPosition[memberName.value];
+}
+nameThree.addEventListener("change", defaultPositionThree);
 
 ///// 4 枠目のイベント
 function displayNumberFour() {
@@ -337,6 +436,7 @@ function displayNumberFour() {
   const statsOneSlg = document.getElementById("slg4");
   const statsOneHr = document.getElementById("hr4");
   const statsOneSb = document.getElementById("sb4");
+  const statsOneK = document.getElementById("K4");
   let personalName = document.getElementById("memberList4");
   let lastGameOne = document.getElementById("gameFour");
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
@@ -344,10 +444,12 @@ function displayNumberFour() {
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
+  statsOneK.innerText = k(personalName.value, lastGameOne.value);
 }
 const checkFour = document.getElementById("button4");
 checkFour.addEventListener("click", displayNumberFour);
 
+// 守備位置へ移動
 function displayPositionFour() {
   let personalName = document.getElementById("memberList4");
   const positionSelect = document.getElementById("positionFour");
@@ -356,9 +458,18 @@ function displayPositionFour() {
 const moveFour = document.getElementById("buttonP4");
 moveFour.addEventListener("click", displayPositionFour);
 
+// メンバーリストのオプション作成
 const nameFour = document.getElementById("memberList4");
 const createListFour = document.getElementById("buttonM1");
 createListFour.addEventListener("click", member);
+
+// 守備位置の初期値
+function defaultPositionFour() {
+  const memberName = document.getElementById("memberList4");
+  const position = document.getElementById("positionFour");
+  position.value = personalPosition[memberName.value];
+}
+nameFour.addEventListener("change", defaultPositionFour);
 
 ///// 5 枠目のイベント
 function displayNumberFive() {
@@ -367,6 +478,7 @@ function displayNumberFive() {
   const statsOneSlg = document.getElementById("slg5");
   const statsOneHr = document.getElementById("hr5");
   const statsOneSb = document.getElementById("sb5");
+  const statsOneK = document.getElementById("K5");
   let personalName = document.getElementById("memberList5");
   let lastGameOne = document.getElementById("gameFive");
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
@@ -374,10 +486,12 @@ function displayNumberFive() {
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
+  statsOneK.innerText = k(personalName.value, lastGameOne.value);
 }
 const checkFive = document.getElementById("button5");
 checkFive.addEventListener("click", displayNumberFive);
 
+// 守備位置へ移動
 function displayPositionFive() {
   let personalName = document.getElementById("memberList5");
   const positionSelect = document.getElementById("positionFive");
@@ -386,9 +500,18 @@ function displayPositionFive() {
 const moveFive = document.getElementById("buttonP5");
 moveFive.addEventListener("click", displayPositionFive);
 
+// メンバーリストのオプション作成
 const nameFive = document.getElementById("memberList5");
 const createListFive = document.getElementById("buttonM1");
 createListFive.addEventListener("click", member);
+
+// 守備位置の初期値
+function defaultPositionFive() {
+  const memberName = document.getElementById("memberList5");
+  const position = document.getElementById("positionFive");
+  position.value = personalPosition[memberName.value];
+}
+nameFive.addEventListener("change", defaultPositionFive);
 
 ///// 6 枠目のイベント
 function displayNumberSix() {
@@ -397,6 +520,7 @@ function displayNumberSix() {
   const statsOneSlg = document.getElementById("slg6");
   const statsOneHr = document.getElementById("hr6");
   const statsOneSb = document.getElementById("sb6");
+  const statsOneK = document.getElementById("K6");
   let personalName = document.getElementById("memberList6");
   let lastGameOne = document.getElementById("gameSix");
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
@@ -404,10 +528,12 @@ function displayNumberSix() {
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
+  statsOneK.innerText = k(personalName.value, lastGameOne.value);
 }
 const checkSix = document.getElementById("button6");
 checkSix.addEventListener("click", displayNumberSix);
 
+// 守備位置へ移動
 function displayPositionSix() {
   let personalName = document.getElementById("memberList6");
   const positionSelect = document.getElementById("positionSix");
@@ -416,9 +542,18 @@ function displayPositionSix() {
 const moveSix = document.getElementById("buttonP6");
 moveSix.addEventListener("click", displayPositionSix);
 
+// メンバーリストのオプション作成
 const nameSix = document.getElementById("memberList6");
 const createListSix = document.getElementById("buttonM1");
 createListSix.addEventListener("click", member);
+
+// 守備位置の初期値
+function defaultPositionSix() {
+  const memberName = document.getElementById("memberList6");
+  const position = document.getElementById("positionSix");
+  position.value = personalPosition[memberName.value];
+}
+nameSix.addEventListener("change", defaultPositionSix);
 
 ///// 7 枠目のイベント
 function displayNumberSeven() {
@@ -427,6 +562,7 @@ function displayNumberSeven() {
   const statsOneSlg = document.getElementById("slg7");
   const statsOneHr = document.getElementById("hr7");
   const statsOneSb = document.getElementById("sb7");
+  const statsOneK = document.getElementById("K7");
   let personalName = document.getElementById("memberList7");
   let lastGameOne = document.getElementById("gameSeven");
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
@@ -434,10 +570,12 @@ function displayNumberSeven() {
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
+  statsOneK.innerText = k(personalName.value, lastGameOne.value);
 }
 const checkSeven = document.getElementById("button7");
 checkSeven.addEventListener("click", displayNumberSeven);
 
+// 守備位置へ移動
 function displayPositionSeven() {
   let personalName = document.getElementById("memberList7");
   const positionSelect = document.getElementById("positionSeven");
@@ -446,9 +584,18 @@ function displayPositionSeven() {
 const moveSeven = document.getElementById("buttonP7");
 moveSeven.addEventListener("click", displayPositionSeven);
 
+// メンバーリストのオプション作成
 const nameSeven = document.getElementById("memberList7");
 const createListSeven = document.getElementById("buttonM1");
 createListSeven.addEventListener("click", member);
+
+// 守備位置の初期値
+function defaultPositionSeven() {
+  const memberName = document.getElementById("memberList7");
+  const position = document.getElementById("positionSeven");
+  position.value = personalPosition[memberName.value];
+}
+nameSeven.addEventListener("change", defaultPositionSeven);
 
 ///// 8 枠目のイベント
 function displayNumberEight() {
@@ -457,6 +604,7 @@ function displayNumberEight() {
   const statsOneSlg = document.getElementById("slg8");
   const statsOneHr = document.getElementById("hr8");
   const statsOneSb = document.getElementById("sb8");
+  const statsOneK = document.getElementById("K8");
   let personalName = document.getElementById("memberList8");
   let lastGameOne = document.getElementById("gameEight");
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
@@ -464,10 +612,12 @@ function displayNumberEight() {
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
+  statsOneK.innerText = k(personalName.value, lastGameOne.value);
 }
 const checkEight = document.getElementById("button8");
 checkEight.addEventListener("click", displayNumberEight);
 
+// 守備位置へ移動
 function displayPositionEight() {
   let personalName = document.getElementById("memberList8");
   const positionSelect = document.getElementById("positionEight");
@@ -476,9 +626,18 @@ function displayPositionEight() {
 const moveEight = document.getElementById("buttonP8");
 moveEight.addEventListener("click", displayPositionEight);
 
+// メンバーリストのオプション作成
 const nameEight = document.getElementById("memberList8");
 const createListEight = document.getElementById("buttonM1");
 createListEight.addEventListener("click", member);
+
+// 守備位置の初期値
+function defaultPositionEight() {
+  const memberName = document.getElementById("memberList8");
+  const position = document.getElementById("positionEight");
+  position.value = personalPosition[memberName.value];
+}
+nameEight.addEventListener("change", defaultPositionEight);
 
 ///// 9 枠目のイベント
 function displayNumberNine() {
@@ -487,6 +646,7 @@ function displayNumberNine() {
   const statsOneSlg = document.getElementById("slg9");
   const statsOneHr = document.getElementById("hr9");
   const statsOneSb = document.getElementById("sb9");
+  const statsOneK = document.getElementById("K9");
   let personalName = document.getElementById("memberList9");
   let lastGameOne = document.getElementById("gameNine");
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
@@ -494,10 +654,12 @@ function displayNumberNine() {
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
+  statsOneK.innerText = k(personalName.value, lastGameOne.value);
 }
 const checkNine = document.getElementById("button9");
 checkNine.addEventListener("click", displayNumberNine);
 
+// 守備位置へ移動
 function displayPositionNine() {
   let personalName = document.getElementById("memberList9");
   const positionSelect = document.getElementById("positionNine");
@@ -506,9 +668,18 @@ function displayPositionNine() {
 const moveNine = document.getElementById("buttonP9");
 moveNine.addEventListener("click", displayPositionNine);
 
+// メンバーリストのオプション作成
 const nameNine = document.getElementById("memberList9");
 const createListNine = document.getElementById("buttonM1");
 createListNine.addEventListener("click", member);
+
+// 守備位置の初期値
+function defaultPositionNine() {
+  const memberName = document.getElementById("memberList9");
+  const position = document.getElementById("positionNine");
+  position.value = personalPosition[memberName.value];
+}
+nameNine.addEventListener("change", defaultPositionNine);
 
 /////全枠に数字を入れるイベント
 function inputAll() {
