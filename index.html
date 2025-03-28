@@ -40,18 +40,17 @@
     <h2 class="title1">Batting Order <input type="number" id="statsCheckAll" min="1"/>
     <button id="inputAll">↓ input all</button>
     <button id="checkAll">check all</button>
-    <button id="moveAll">all =></button>
+    <button id="moveAll">set =></button>
   </h2>
       <div class="outline">
         <div class="order" name="1">1
           <select id="memberList1"></select> 
           <label >stats: <input type="number" id="gameOne" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button1">↓ check</button>  
-          <select id="positionOne" class="positionSelect">
+          <select id="position1" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
             <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
           </select>
-          <button id="buttonP1" class="positionButton">=></button>   
           <div class="statsDisplay">
             <p>AVG:</p><p id="avg1"></p>
             <p>OBP:</p><p id="obp1"></p>
@@ -65,11 +64,10 @@
           <select id="memberList2"></select>
           <label>stats: <input type="number" id="gameTwo" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button2">↓ check</button>
-          <select id="positionTwo" class="positionSelect">
+          <select id="position2" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
             <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
           </select>
-          <button id="buttonP2" class="positionButton">=></button>    
           <div class="statsDisplay">
             <p>AVG:</p><p id="avg2"></p>
             <p>OBP:</p><p id="obp2"></p>
@@ -83,11 +81,10 @@
           <select id="memberList3"></select> 
           <label>stats: <input type="number" id="gameThree" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button3">↓ check</button>
-          <select id="positionThree" class="positionSelect">
+          <select id="position3" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
             <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
           </select>
-          <button id="buttonP3" class="positionButton">=></button>   
           <div class="statsDisplay">
             <p>AVG:</p><p id="avg3"></p>
             <p>OBP:</p><p id="obp3"></p>
@@ -101,11 +98,10 @@
           <select id="memberList4"></select> 
           <label>stats: <input type="number" id="gameFour" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button4">↓ check</button>
-          <select id="positionFour" class="positionSelect">
+          <select id="position4" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
             <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
           </select>
-          <button id="buttonP4" class="positionButton">=></button>    
           <div class="statsDisplay">
             <p>AVG:</p><p id="avg4"></p>
             <p>OBP:</p><p id="obp4"></p>
@@ -119,11 +115,10 @@
           <select id="memberList5"></select> 
           <label>stats: <input type="number" id="gameFive" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button5">↓ check</button>
-          <select id="positionFive" class="positionSelect">
+          <select id="position5" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
             <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
           </select>
-          <button id="buttonP5" class="positionButton">=></button>     
           <div class="statsDisplay">
             <p>AVG:</p><p id="avg5"></p>
             <p>OBP:</p><p id="obp5"></p>
@@ -137,11 +132,10 @@
           <select id="memberList6"></select> 
           <label>stats: <input type="number" id="gameSix" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button6">↓ check</button> 
-          <select id="positionSix" class="positionSelect">
+          <select id="position6" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
             <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
           </select>
-          <button id="buttonP6" class="positionButton">=></button>   
           <div class="statsDisplay">
             <p>AVG:</p><p id="avg6"></p>
             <p>OBP:</p><p id="obp6"></p>
@@ -155,11 +149,10 @@
           <select id="memberList7"></select>
           <label>stats: <input type="number" id="gameSeven" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button7">↓ check</button>
-          <select id="positionSeven" class="positionSelect">
+          <select id="position7" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
             <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
           </select>
-          <button id="buttonP7" class="positionButton">=></button>      
           <div class="statsDisplay">
             <p>AVG:</p><p id="avg7"></p>
             <p>OBP:</p><p id="obp7"></p>
@@ -173,11 +166,10 @@
           <select id="memberList8"></select>
           <label>stats: <input type="number" id="gameEight" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button8">↓ check</button>
-          <select id="positionEight" class="positionSelect">
+          <select id="position8" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
             <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
           </select>
-          <button id="buttonP8" class="positionButton">=></button>     
           <div class="statsDisplay">
             <p>AVG:</p><p id="avg8"></p>
             <p>OBP:</p><p id="obp8"></p>
@@ -191,11 +183,10 @@
           <select id="memberList9"></select>
           <label>stats: <input type="number" id="gameNine" class="numberOfGame" placeholder="Last ? games" min="1"/></label>
           <button id="button9">↓ check</button>
-          <select id="positionNine" class="positionSelect">
+          <select id="position9" class="positionSelect">
             <option>P</option><option>C</option><option>1B</option><option>2B</option>
             <option>3B</option><option>SS</option><option>LF</option><option>CF</option><option>RF</option>
           </select>
-          <button id="buttonP9" class="positionButton">=></button>     
           <div class="statsDisplay">
             <p>AVG:</p><p id="avg9"></p>
             <p>OBP:</p><p id="obp9"></p>
