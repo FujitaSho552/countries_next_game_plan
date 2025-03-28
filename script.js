@@ -323,25 +323,14 @@ function displayNumberOne() {
 const checkOne = document.getElementById("button1");
 checkOne.addEventListener("click", displayNumberOne);
 
-// 守備位置へ移動
-function displayPositionOne() {
-  let personalName = document.getElementById("memberList1");
-  const positionSelect = document.getElementById("positionOne");
-  moveField(personalName.value, positionSelect.value);
-}
-const moveOne = document.getElementById("buttonP1");
-moveOne.addEventListener("click", displayPositionOne);
-
 // メンバーリストのオプション作成
 const nameOne = document.getElementById("memberList1");
-// const createListOne = document.getElementById("buttonM1");
 okButton.addEventListener("click", member);
 
 // 守備位置の初期値
 function defaultPositionOne() {
-  const memberName = document.getElementById("memberList1");
-  const position = document.getElementById("positionOne");
-  position.value = personalPosition[memberName.value];
+  const position = document.getElementById("position1");
+  position.value = personalPosition[nameOne.value];
 }
 nameOne.addEventListener("change", defaultPositionOne);
 
@@ -365,25 +354,14 @@ function displayNumberTwo() {
 const checkTwo = document.getElementById("button2");
 checkTwo.addEventListener("click", displayNumberTwo);
 
-// 守備位置へ移動
-function displayPositionTwo() {
-  let personalName = document.getElementById("memberList2");
-  const positionSelect = document.getElementById("positionTwo");
-  moveField(personalName.value, positionSelect.value);
-}
-const moveTwo = document.getElementById("buttonP2");
-moveTwo.addEventListener("click", displayPositionTwo);
-
 // メンバーリストのオプション作成
 const nameTwo = document.getElementById("memberList2");
-const createListTwo = document.getElementById("buttonM1");
-createListTwo.addEventListener("click", member);
+okButton.addEventListener("click", member);
 
 // 守備位置の初期値
 function defaultPositionTwo() {
-  const memberName = document.getElementById("memberList2");
-  const position = document.getElementById("positionTwo");
-  position.value = personalPosition[memberName.value];
+  const position = document.getElementById("position2");
+  position.value = personalPosition[nameTwo.value];
 }
 nameTwo.addEventListener("change", defaultPositionTwo);
 
@@ -407,25 +385,14 @@ function displayNumberThree() {
 const checkThree = document.getElementById("button3");
 checkThree.addEventListener("click", displayNumberThree);
 
-// 守備位置へ移動
-function displayPositionThree() {
-  let personalName = document.getElementById("memberList3");
-  const positionSelect = document.getElementById("positionThree");
-  moveField(personalName.value, positionSelect.value);
-}
-const moveThree = document.getElementById("buttonP3");
-moveThree.addEventListener("click", displayPositionThree);
-
 // メンバーリストのオプション作成
 const nameThree = document.getElementById("memberList3");
-const createListThree = document.getElementById("buttonM1");
-createListThree.addEventListener("click", member);
+okButton.addEventListener("click", member);
 
 // 守備位置の初期値
 function defaultPositionThree() {
-  const memberName = document.getElementById("memberList3");
-  const position = document.getElementById("positionThree");
-  position.value = personalPosition[memberName.value];
+  const position = document.getElementById("position3");
+  position.value = personalPosition[nameThree.value];
 }
 nameThree.addEventListener("change", defaultPositionThree);
 
@@ -449,25 +416,14 @@ function displayNumberFour() {
 const checkFour = document.getElementById("button4");
 checkFour.addEventListener("click", displayNumberFour);
 
-// 守備位置へ移動
-function displayPositionFour() {
-  let personalName = document.getElementById("memberList4");
-  const positionSelect = document.getElementById("positionFour");
-  moveField(personalName.value, positionSelect.value);
-}
-const moveFour = document.getElementById("buttonP4");
-moveFour.addEventListener("click", displayPositionFour);
-
 // メンバーリストのオプション作成
 const nameFour = document.getElementById("memberList4");
-const createListFour = document.getElementById("buttonM1");
-createListFour.addEventListener("click", member);
+okButton.addEventListener("click", member);
 
 // 守備位置の初期値
 function defaultPositionFour() {
-  const memberName = document.getElementById("memberList4");
-  const position = document.getElementById("positionFour");
-  position.value = personalPosition[memberName.value];
+  const position = document.getElementById("position4");
+  position.value = personalPosition[nameFour.value];
 }
 nameFour.addEventListener("change", defaultPositionFour);
 
@@ -491,25 +447,14 @@ function displayNumberFive() {
 const checkFive = document.getElementById("button5");
 checkFive.addEventListener("click", displayNumberFive);
 
-// 守備位置へ移動
-function displayPositionFive() {
-  let personalName = document.getElementById("memberList5");
-  const positionSelect = document.getElementById("positionFive");
-  moveField(personalName.value, positionSelect.value);
-}
-const moveFive = document.getElementById("buttonP5");
-moveFive.addEventListener("click", displayPositionFive);
-
 // メンバーリストのオプション作成
 const nameFive = document.getElementById("memberList5");
-const createListFive = document.getElementById("buttonM1");
-createListFive.addEventListener("click", member);
+okButton.addEventListener("click", member);
 
 // 守備位置の初期値
 function defaultPositionFive() {
-  const memberName = document.getElementById("memberList5");
-  const position = document.getElementById("positionFive");
-  position.value = personalPosition[memberName.value];
+  const position = document.getElementById("position5");
+  position.value = personalPosition[nameFive.value];
 }
 nameFive.addEventListener("change", defaultPositionFive);
 
@@ -533,25 +478,14 @@ function displayNumberSix() {
 const checkSix = document.getElementById("button6");
 checkSix.addEventListener("click", displayNumberSix);
 
-// 守備位置へ移動
-function displayPositionSix() {
-  let personalName = document.getElementById("memberList6");
-  const positionSelect = document.getElementById("positionSix");
-  moveField(personalName.value, positionSelect.value);
-}
-const moveSix = document.getElementById("buttonP6");
-moveSix.addEventListener("click", displayPositionSix);
-
 // メンバーリストのオプション作成
 const nameSix = document.getElementById("memberList6");
-const createListSix = document.getElementById("buttonM1");
-createListSix.addEventListener("click", member);
+okButton.addEventListener("click", member);
 
 // 守備位置の初期値
 function defaultPositionSix() {
-  const memberName = document.getElementById("memberList6");
-  const position = document.getElementById("positionSix");
-  position.value = personalPosition[memberName.value];
+  const position = document.getElementById("position6");
+  position.value = personalPosition[nameSix.value];
 }
 nameSix.addEventListener("change", defaultPositionSix);
 
@@ -575,25 +509,14 @@ function displayNumberSeven() {
 const checkSeven = document.getElementById("button7");
 checkSeven.addEventListener("click", displayNumberSeven);
 
-// 守備位置へ移動
-function displayPositionSeven() {
-  let personalName = document.getElementById("memberList7");
-  const positionSelect = document.getElementById("positionSeven");
-  moveField(personalName.value, positionSelect.value);
-}
-const moveSeven = document.getElementById("buttonP7");
-moveSeven.addEventListener("click", displayPositionSeven);
-
 // メンバーリストのオプション作成
 const nameSeven = document.getElementById("memberList7");
-const createListSeven = document.getElementById("buttonM1");
-createListSeven.addEventListener("click", member);
+okButton.addEventListener("click", member);
 
 // 守備位置の初期値
 function defaultPositionSeven() {
-  const memberName = document.getElementById("memberList7");
-  const position = document.getElementById("positionSeven");
-  position.value = personalPosition[memberName.value];
+  const position = document.getElementById("position7");
+  position.value = personalPosition[nameSeven.value];
 }
 nameSeven.addEventListener("change", defaultPositionSeven);
 
@@ -617,25 +540,14 @@ function displayNumberEight() {
 const checkEight = document.getElementById("button8");
 checkEight.addEventListener("click", displayNumberEight);
 
-// 守備位置へ移動
-function displayPositionEight() {
-  let personalName = document.getElementById("memberList8");
-  const positionSelect = document.getElementById("positionEight");
-  moveField(personalName.value, positionSelect.value);
-}
-const moveEight = document.getElementById("buttonP8");
-moveEight.addEventListener("click", displayPositionEight);
-
 // メンバーリストのオプション作成
 const nameEight = document.getElementById("memberList8");
-const createListEight = document.getElementById("buttonM1");
-createListEight.addEventListener("click", member);
+okButton.addEventListener("click", member);
 
 // 守備位置の初期値
 function defaultPositionEight() {
-  const memberName = document.getElementById("memberList8");
-  const position = document.getElementById("positionEight");
-  position.value = personalPosition[memberName.value];
+  const position = document.getElementById("position8");
+  position.value = personalPosition[nameEight.value];
 }
 nameEight.addEventListener("change", defaultPositionEight);
 
@@ -659,25 +571,14 @@ function displayNumberNine() {
 const checkNine = document.getElementById("button9");
 checkNine.addEventListener("click", displayNumberNine);
 
-// 守備位置へ移動
-function displayPositionNine() {
-  let personalName = document.getElementById("memberList9");
-  const positionSelect = document.getElementById("positionNine");
-  moveField(personalName.value, positionSelect.value);
-}
-const moveNine = document.getElementById("buttonP9");
-moveNine.addEventListener("click", displayPositionNine);
-
 // メンバーリストのオプション作成
 const nameNine = document.getElementById("memberList9");
-const createListNine = document.getElementById("buttonM1");
-createListNine.addEventListener("click", member);
+okButton.addEventListener("click", member);
 
 // 守備位置の初期値
 function defaultPositionNine() {
-  const memberName = document.getElementById("memberList9");
-  const position = document.getElementById("positionNine");
-  position.value = personalPosition[memberName.value];
+  const position = document.getElementById("position9");
+  position.value = personalPosition[nameNine.value];
 }
 nameNine.addEventListener("change", defaultPositionNine);
 
@@ -725,15 +626,11 @@ checkAllButton.addEventListener("click", checkAll);
 
 /////全枠の守備位置を移動させるイベント
 function moveAll() {
-  displayPositionOne();
-  displayPositionTwo();
-  displayPositionThree();
-  displayPositionFour();
-  displayPositionFive();
-  displayPositionSix();
-  displayPositionSeven();
-  displayPositionEight();
-  displayPositionNine();
+  for (let i = 1; i < 10; i++) {
+    const personalName = document.getElementById(`memberList${i}`);
+    const positionSelect = document.getElementById(`position${i}`);
+    moveField(personalName.value, positionSelect.value);
+  }
 }
 
 const moveAllButton = document.getElementById("moveAll");
