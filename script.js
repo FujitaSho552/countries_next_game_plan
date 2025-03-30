@@ -1,7 +1,7 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-/////average 打率
+///// average 打率
 /**
  * @param {string} name - 結果を表示したい人の名前
  * @param {number} num - 表示したい試合数
@@ -28,7 +28,7 @@ function avg(name, num) {
 // test(avg("Fujita", 1), 0.250);
 // console.log(avg("BBB"));
 
-/////select member average 選択メンバーの打率
+///// select member average 選択メンバーの打率
 /**
  * @returns {number} 打率を計算する
  */
@@ -61,7 +61,7 @@ function selectMemberAvg() {
   return `${average.toFixed(3)} (${sumAtBat} - ${sumHit})`
 }
 
-/////On Base Percentage 出塁率
+///// On Base Percentage 出塁率
 /**
  * @param {string} name - 結果を表示したい人の名前
  * @param {number} num - 計算したい試合数
@@ -84,7 +84,7 @@ function obp(name, num) {
   return onBasePercent.toFixed(3);
 }
 
-/////Slugging Percentage 長打率
+///// Slugging Percentage 長打率
 /**
  * @param {string} name - 結果を表示したい人の名前
  * @param {number} num - 計算したい試合数
@@ -107,7 +107,7 @@ function slg(name, num) {
   return slugging.toFixed(3);
 }
 
-/////Home Run
+///// Home Run
 /**
  * @param {string} name - 結果を表示したい人の名前
  * @param {number} num - 計算したい試合数
@@ -126,7 +126,7 @@ function hr(name, num) {
   return numberOfHr;
 }
 
-/////Stolen Base 盗塁
+///// Stolen Base 盗塁
 /**
  * @param {string} name - 結果を表示したい人の名前
  * @param {number} num - 計算したい試合数
@@ -145,7 +145,26 @@ function sb(name, num) {
   return numberOfSb;
 }
 
-/////Strike out
+///// Run batted in
+/**
+ * @param {string} name - 結果を表示したい人の名前
+ * @param {number} num - 計算したい試合数
+ * @returns {number} 三振数を合計する
+ */
+function rbi(name, num) {
+  let numberOfRbi = 0;
+
+  for (let i = 0; i <= num - 1; i++) {
+    for (const personalData of record[i]) {
+      if (personalData[name]) {
+        numberOfRbi = numberOfRbi + personalData[name]["RBI"];
+      }
+    }
+  }
+  return numberOfRbi;
+}
+
+///// Strike out
 /**
  * @param {string} name - 結果を表示したい人の名前
  * @param {number} num - 計算したい試合数
@@ -164,7 +183,7 @@ function k(name, num) {
   return numberOfK;
 }
 
-/////守備位置へ名前転記
+///// 守備位置へ名前転記
 /**
  * @param {string} name - 入力されている人の名前
  * @param {string} position - 選ばれたポジション名
@@ -201,7 +220,7 @@ function moveField(name, position) {
   }
 }
 
-/////Member リスト表示
+///// Member リスト表示
 /**
  * @param {string} name - メンバーに追加したい人の名前
  * @returns ドロップダウンのoption要素を作成する
@@ -303,11 +322,41 @@ okButton.addEventListener("click", displaySelectMemberAvg);
 ///// 守備位置の初期値 defaultPosition の関数で参照
 const personalPosition = {"黒川": "P", "藤田": "C", "杉浦": "3B", "米田": "LF", "久木田": "CF", "西": "SS", "田前": "SS", "鬼塚": "1B", "下町": "2B", "枝元": "RF", "比嘉": "2B", "前野": "SS", "後潟": "CF",};
 
+///// 打率３割以上、出塁率３割５分以上は赤字に変える
+/**
+ * @param {number} num - 取得する avg エレメントの番号
+ * 基準値以上は赤文字に変更、それ以外は黒文字にする
+ */
+function fontColor(num) {
+  const getAvg = document.getElementById(`avg${num}`);
+  const getObp = document.getElementById(`obp${num}`);
+  const getHr = document.getElementById(`hr${num}`);
+  const changeColorAvg = getAvg.innerText.substring(0, 5);
+  if (changeColorAvg >= 0.300) {
+    getAvg.style.color = "red";
+  } else {
+    getAvg.style.color = "black";
+  }
+
+  if (getObp.innerText >= 0.350) {
+    getObp.style.color = "red";
+  } else {
+    getObp.style.color = "black";
+  }
+
+  if (getHr.innerText > 0) {
+    getHr.style.color = "red";
+  } else {
+    getHr.style.color = "black";
+  }
+}
+
 ///// 1 枠目のイベント
 function displayNumberOne() {
   const statsOneAvg = document.getElementById("avg1");
   const statsOneObp = document.getElementById("obp1");
   const statsOneSlg = document.getElementById("slg1");
+  const statsOneRbi = document.getElementById("rbi1");
   const statsOneHr = document.getElementById("hr1");
   const statsOneSb = document.getElementById("sb1");
   const statsOneK = document.getElementById("K1");
@@ -316,9 +365,11 @@ function displayNumberOne() {
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
   statsOneObp.innerText = obp(personalName.value, lastGameOne.value);
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
+  statsOneRbi.innerText = rbi(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
   statsOneK.innerText = k(personalName.value, lastGameOne.value);
+  fontColor(1);
 }
 const checkOne = document.getElementById("button1");
 checkOne.addEventListener("click", displayNumberOne);
@@ -339,6 +390,7 @@ function displayNumberTwo() {
   const statsOneAvg = document.getElementById("avg2");
   const statsOneObp = document.getElementById("obp2");
   const statsOneSlg = document.getElementById("slg2");
+  const statsOneRbi = document.getElementById("rbi2");
   const statsOneHr = document.getElementById("hr2");
   const statsOneSb = document.getElementById("sb2");
   const statsOneK = document.getElementById("K2");
@@ -347,9 +399,11 @@ function displayNumberTwo() {
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
   statsOneObp.innerText = obp(personalName.value, lastGameOne.value);
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
+  statsOneRbi.innerText = rbi(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
   statsOneK.innerText = k(personalName.value, lastGameOne.value);
+  fontColor(2);
 }
 const checkTwo = document.getElementById("button2");
 checkTwo.addEventListener("click", displayNumberTwo);
@@ -370,6 +424,7 @@ function displayNumberThree() {
   const statsOneAvg = document.getElementById("avg3");
   const statsOneObp = document.getElementById("obp3");
   const statsOneSlg = document.getElementById("slg3");
+  const statsOneRbi = document.getElementById("rbi3");
   const statsOneHr = document.getElementById("hr3");
   const statsOneSb = document.getElementById("sb3");
   const statsOneK = document.getElementById("K3");
@@ -378,9 +433,11 @@ function displayNumberThree() {
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
   statsOneObp.innerText = obp(personalName.value, lastGameOne.value);
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
+  statsOneRbi.innerText = rbi(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
   statsOneK.innerText = k(personalName.value, lastGameOne.value);
+  fontColor(3);
 }
 const checkThree = document.getElementById("button3");
 checkThree.addEventListener("click", displayNumberThree);
@@ -401,6 +458,7 @@ function displayNumberFour() {
   const statsOneAvg = document.getElementById("avg4");
   const statsOneObp = document.getElementById("obp4");
   const statsOneSlg = document.getElementById("slg4");
+  const statsOneRbi = document.getElementById("rbi4");
   const statsOneHr = document.getElementById("hr4");
   const statsOneSb = document.getElementById("sb4");
   const statsOneK = document.getElementById("K4");
@@ -409,9 +467,11 @@ function displayNumberFour() {
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
   statsOneObp.innerText = obp(personalName.value, lastGameOne.value);
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
+  statsOneRbi.innerText = rbi(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
   statsOneK.innerText = k(personalName.value, lastGameOne.value);
+  fontColor(4);
 }
 const checkFour = document.getElementById("button4");
 checkFour.addEventListener("click", displayNumberFour);
@@ -432,6 +492,7 @@ function displayNumberFive() {
   const statsOneAvg = document.getElementById("avg5");
   const statsOneObp = document.getElementById("obp5");
   const statsOneSlg = document.getElementById("slg5");
+  const statsOneRbi = document.getElementById("rbi5");
   const statsOneHr = document.getElementById("hr5");
   const statsOneSb = document.getElementById("sb5");
   const statsOneK = document.getElementById("K5");
@@ -440,9 +501,11 @@ function displayNumberFive() {
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
   statsOneObp.innerText = obp(personalName.value, lastGameOne.value);
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
+  statsOneRbi.innerText = rbi(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
   statsOneK.innerText = k(personalName.value, lastGameOne.value);
+  fontColor(5);
 }
 const checkFive = document.getElementById("button5");
 checkFive.addEventListener("click", displayNumberFive);
@@ -463,6 +526,7 @@ function displayNumberSix() {
   const statsOneAvg = document.getElementById("avg6");
   const statsOneObp = document.getElementById("obp6");
   const statsOneSlg = document.getElementById("slg6");
+  const statsOneRbi = document.getElementById("rbi6");
   const statsOneHr = document.getElementById("hr6");
   const statsOneSb = document.getElementById("sb6");
   const statsOneK = document.getElementById("K6");
@@ -471,9 +535,11 @@ function displayNumberSix() {
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
   statsOneObp.innerText = obp(personalName.value, lastGameOne.value);
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
+  statsOneRbi.innerText = rbi(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
   statsOneK.innerText = k(personalName.value, lastGameOne.value);
+  fontColor(6);
 }
 const checkSix = document.getElementById("button6");
 checkSix.addEventListener("click", displayNumberSix);
@@ -494,6 +560,7 @@ function displayNumberSeven() {
   const statsOneAvg = document.getElementById("avg7");
   const statsOneObp = document.getElementById("obp7");
   const statsOneSlg = document.getElementById("slg7");
+  const statsOneRbi = document.getElementById("rbi7");
   const statsOneHr = document.getElementById("hr7");
   const statsOneSb = document.getElementById("sb7");
   const statsOneK = document.getElementById("K7");
@@ -502,9 +569,11 @@ function displayNumberSeven() {
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
   statsOneObp.innerText = obp(personalName.value, lastGameOne.value);
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
+  statsOneRbi.innerText = rbi(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
   statsOneK.innerText = k(personalName.value, lastGameOne.value);
+  fontColor(7);
 }
 const checkSeven = document.getElementById("button7");
 checkSeven.addEventListener("click", displayNumberSeven);
@@ -525,6 +594,7 @@ function displayNumberEight() {
   const statsOneAvg = document.getElementById("avg8");
   const statsOneObp = document.getElementById("obp8");
   const statsOneSlg = document.getElementById("slg8");
+  const statsOneRbi = document.getElementById("rbi8");
   const statsOneHr = document.getElementById("hr8");
   const statsOneSb = document.getElementById("sb8");
   const statsOneK = document.getElementById("K8");
@@ -533,9 +603,11 @@ function displayNumberEight() {
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
   statsOneObp.innerText = obp(personalName.value, lastGameOne.value);
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
+  statsOneRbi.innerText = rbi(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
   statsOneK.innerText = k(personalName.value, lastGameOne.value);
+  fontColor(8);
 }
 const checkEight = document.getElementById("button8");
 checkEight.addEventListener("click", displayNumberEight);
@@ -556,6 +628,7 @@ function displayNumberNine() {
   const statsOneAvg = document.getElementById("avg9");
   const statsOneObp = document.getElementById("obp9");
   const statsOneSlg = document.getElementById("slg9");
+  const statsOneRbi = document.getElementById("rbi9");
   const statsOneHr = document.getElementById("hr9");
   const statsOneSb = document.getElementById("sb9");
   const statsOneK = document.getElementById("K9");
@@ -564,9 +637,11 @@ function displayNumberNine() {
   statsOneAvg.innerText = avg(personalName.value, lastGameOne.value);
   statsOneObp.innerText = obp(personalName.value, lastGameOne.value);
   statsOneSlg.innerText = slg(personalName.value, lastGameOne.value);
+  statsOneRbi.innerText = rbi(personalName.value, lastGameOne.value);
   statsOneHr.innerText = hr(personalName.value, lastGameOne.value);
   statsOneSb.innerText = sb(personalName.value, lastGameOne.value);
   statsOneK.innerText = k(personalName.value, lastGameOne.value);
+  fontColor(9);
 }
 const checkNine = document.getElementById("button9");
 checkNine.addEventListener("click", displayNumberNine);
@@ -582,7 +657,7 @@ function defaultPositionNine() {
 }
 nameNine.addEventListener("change", defaultPositionNine);
 
-/////全枠に数字を入れるイベント
+///// 全枠に数字を入れるイベント
 function inputAll() {
   const inputAllNumber = document.getElementById("statsCheckAll");
   const lastGameOne = document.getElementById("gameOne");
@@ -608,7 +683,7 @@ function inputAll() {
 const inputNumber = document.getElementById("inputAll");
 inputNumber.addEventListener("click", inputAll);
 
-/////全枠の値を表示させるイベント
+///// 全枠の値を表示させるイベント
 function checkAll() {
   displayNumberOne();
   displayNumberTwo();
@@ -624,7 +699,7 @@ function checkAll() {
 const checkAllButton = document.getElementById("checkAll");
 checkAllButton.addEventListener("click", checkAll);
 
-/////全枠の守備位置を移動させるイベント
+///// 全枠の守備位置を移動させるイベント
 function moveAll() {
   for (let i = 1; i < 10; i++) {
     const personalName = document.getElementById(`memberList${i}`);
@@ -635,3 +710,11 @@ function moveAll() {
 
 const moveAllButton = document.getElementById("moveAll");
 moveAllButton.addEventListener("click", moveAll);
+
+///// 印刷
+function print() {
+  // window.print();
+}
+
+const printButton = document.getElementById("print");
+printButton.addEventListener("click", print);
