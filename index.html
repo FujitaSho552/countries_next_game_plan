@@ -14,23 +14,140 @@
   <h1>⚾️Next Game Plan⚾️</h1>
   <div>
   <h2 class="title1">Member</h2>
-    <label><input type="checkbox" name="member" value="黒川">黒川</label>
-    <label><input type="checkbox" name="member" value="藤田">藤田</label>
-    <label><input type="checkbox" name="member" value="杉浦">杉浦</label>
-    <label><input type="checkbox" name="member" value="米田">米田</label>
-    <label><input type="checkbox" name="member" value="久木田">久木田</label>
-    <label><input type="checkbox" name="member" value="西">西</label>
-    <label><input type="checkbox" name="member" value="田前">田前</label>
-    <label><input type="checkbox" name="member" value="鬼塚">鬼塚</label>
-    <label><input type="checkbox" name="member" value="下町">下町</label>
-    <label><input type="checkbox" name="member" value="枝元">枝元</label>
-    <label><input type="checkbox" name="member" value="比嘉">比嘉</label>
-    <label><input type="checkbox" name="member" value="前野">前野</label>
-    <label><input type="checkbox" name="member" value="後潟">後潟</label>
-    <label><input type="checkbox" name="member" value="助っ人1">助っ人1</label>
-    <label><input type="checkbox" name="member" value="助っ人2">助っ人2</label>
+    <label class="memberName"><input type="checkbox" name="member" value="黒川">黒川</label>
+    <label class="memberName"><input type="checkbox" name="member" value="藤田">藤田</label>
+    <label class="memberName"><input type="checkbox" name="member" value="杉浦">杉浦</label>
+    <label class="memberName"><input type="checkbox" name="member" value="米田">米田</label>
+    <label class="memberName"><input type="checkbox" name="member" value="久木田">久木田</label>
+    <label class="memberName"><input type="checkbox" name="member" value="西">西</label>
+    <label class="memberName"><input type="checkbox" name="member" value="田前">田前</label>
+    <label class="memberName"><input type="checkbox" name="member" value="鬼塚">鬼塚</label>
+    <label class="memberName"><input type="checkbox" name="member" value="下町">下町</label>
+    <label class="memberName"><input type="checkbox" name="member" value="枝元">枝元</label>
+    <label class="memberName"><input type="checkbox" name="member" value="比嘉">比嘉</label>
+    <label class="memberName"><input type="checkbox" name="member" value="前野">前野</label>
+    <label class="memberName"><input type="checkbox" name="member" value="後潟">後潟</label>
+    <label class="memberName"><input type="checkbox" name="member" value="助っ人1">助っ人1</label>
+    <label class="memberName"><input type="checkbox" name="member" value="助っ人2">助っ人2</label>
   </div>
-  <button id="buttonM1" class="memberButton">ok</button>
+    <button id="buttonM1" class="modal-open js-modal-open">ok</button>
+    <div class="modal js-modal">
+      <div class="modal-container">
+        <div class="modal-close js-modal-close">×</div>
+        <div class="modal-content">
+          <p>First plan</p>
+          <div id="radio1" hidden >
+            <label id="member1" ></label>
+            <input type="radio" name="order1" id="select_radio11" value="1" /><label for="select_radio11" >1</label>
+            <input type="radio" name="order1" id="select_radio12" value="2" /><label for="select_radio12" >2</label>
+            <input type="radio" name="order1" id="select_radio13" value="3" /><label for="select_radio13" >3</label>
+            <input type="radio" name="order1" id="select_radio14" value="4" /><label for="select_radio14" >4</label>
+            <input type="radio" name="order1" id="select_radio15" value="5" /><label for="select_radio15" >5</label>
+            <input type="radio" name="order1" id="select_radio16" value="6" /><label for="select_radio16" >6</label>
+            <input type="radio" name="order1" id="select_radio17" value="7" /><label for="select_radio17" >7</label>
+            <input type="radio" name="order1" id="select_radio18" value="8" /><label for="select_radio18" >8</label>
+            <input type="radio" name="order1" id="select_radio19" value="9" /><label for="select_radio19" >9</label>
+          </div>
+          <div id="radio2" hidden >
+            <label id="member2" ></label>
+            <input type="radio" name="order2" id="select_radio21" value="1" /><label for="select_radio21" >1</label>
+            <input type="radio" name="order2" id="select_radio22" value="2" /><label for="select_radio22" >2</label>
+            <input type="radio" name="order2" id="select_radio23" value="3" /><label for="select_radio23" >3</label>
+            <input type="radio" name="order2" id="select_radio24" value="4" /><label for="select_radio24" >4</label>
+            <input type="radio" name="order2" id="select_radio25" value="5" /><label for="select_radio25" >5</label>
+            <input type="radio" name="order2" id="select_radio26" value="6" /><label for="select_radio26" >6</label>
+            <input type="radio" name="order2" id="select_radio27" value="7" /><label for="select_radio27" >7</label>
+            <input type="radio" name="order2" id="select_radio28" value="8" /><label for="select_radio28" >8</label>
+            <input type="radio" name="order2" id="select_radio29" value="9" /><label for="select_radio29" >9</label>
+          </div>
+          <div id="radio3" hidden >
+            <label id="member3" ></label>
+            <input type="radio" name="order3" id="select_radio31" value="1" /><label for="select_radio31" >1</label>
+            <input type="radio" name="order3" id="select_radio32" value="2" /><label for="select_radio32" >2</label>
+            <input type="radio" name="order3" id="select_radio33" value="3" /><label for="select_radio33" >3</label>
+            <input type="radio" name="order3" id="select_radio34" value="4" /><label for="select_radio34" >4</label>
+            <input type="radio" name="order3" id="select_radio35" value="5" /><label for="select_radio35" >5</label>
+            <input type="radio" name="order3" id="select_radio36" value="6" /><label for="select_radio36" >6</label>
+            <input type="radio" name="order3" id="select_radio37" value="7" /><label for="select_radio37" >7</label>
+            <input type="radio" name="order3" id="select_radio38" value="8" /><label for="select_radio38" >8</label>
+            <input type="radio" name="order3" id="select_radio39" value="9" /><label for="select_radio39" >9</label>
+          </div>
+          <div id="radio4" hidden>
+            <label id="member4" ></label>
+            <input type="radio" name="order4" id="select_radio41" value="1" /><label for="select_radio41" >1</label>
+            <input type="radio" name="order4" id="select_radio42" value="2" /><label for="select_radio42" >2</label>
+            <input type="radio" name="order4" id="select_radio43" value="3" /><label for="select_radio43" >3</label>
+            <input type="radio" name="order4" id="select_radio44" value="4" /><label for="select_radio44" >4</label>
+            <input type="radio" name="order4" id="select_radio45" value="5" /><label for="select_radio45" >5</label>
+            <input type="radio" name="order4" id="select_radio46" value="6" /><label for="select_radio46" >6</label>
+            <input type="radio" name="order4" id="select_radio47" value="7" /><label for="select_radio47" >7</label>
+            <input type="radio" name="order4" id="select_radio48" value="8" /><label for="select_radio48" >8</label>
+            <input type="radio" name="order4" id="select_radio49" value="9" /><label for="select_radio49" >9</label>
+          </div>
+          <div id="radio5" hidden >
+            <label id="member5" ></label>
+            <input type="radio" name="order5" id="select_radio51" value="1" /><label for="select_radio51" >1</label>
+            <input type="radio" name="order5" id="select_radio52" value="2" /><label for="select_radio52" >2</label>
+            <input type="radio" name="order5" id="select_radio53" value="3" /><label for="select_radio53" >3</label>
+            <input type="radio" name="order5" id="select_radio54" value="4" /><label for="select_radio54" >4</label>
+            <input type="radio" name="order5" id="select_radio55" value="5" /><label for="select_radio55" >5</label>
+            <input type="radio" name="order5" id="select_radio56" value="6" /><label for="select_radio56" >6</label>
+            <input type="radio" name="order5" id="select_radio57" value="7" /><label for="select_radio57" >7</label>
+            <input type="radio" name="order5" id="select_radio58" value="8" /><label for="select_radio58" >8</label>
+            <input type="radio" name="order5" id="select_radio59" value="9" /><label for="select_radio59" >9</label>
+          </div>
+          <div id="radio6" hidden >
+            <label id="member6" ></label>
+            <input type="radio" name="order6" id="select_radio61" value="1" /><label for="select_radio61" >1</label>
+            <input type="radio" name="order6" id="select_radio62" value="2" /><label for="select_radio62" >2</label>
+            <input type="radio" name="order6" id="select_radio63" value="3" /><label for="select_radio63" >3</label>
+            <input type="radio" name="order6" id="select_radio64" value="4" /><label for="select_radio64" >4</label>
+            <input type="radio" name="order6" id="select_radio65" value="5" /><label for="select_radio65" >5</label>
+            <input type="radio" name="order6" id="select_radio66" value="6" /><label for="select_radio66" >6</label>
+            <input type="radio" name="order6" id="select_radio67" value="7" /><label for="select_radio67" >7</label>
+            <input type="radio" name="order6" id="select_radio68" value="8" /><label for="select_radio68" >8</label>
+            <input type="radio" name="order6" id="select_radio69" value="9" /><label for="select_radio69" >9</label>
+          </div>
+          <div id="radio7" hidden >
+            <label id="member7" ></label>
+            <input type="radio" name="order7" id="select_radio71" value="1" /><label for="select_radio71" >1</label>
+            <input type="radio" name="order7" id="select_radio72" value="2" /><label for="select_radio72" >2</label>
+            <input type="radio" name="order7" id="select_radio73" value="3" /><label for="select_radio73" >3</label>
+            <input type="radio" name="order7" id="select_radio74" value="4" /><label for="select_radio74" >4</label>
+            <input type="radio" name="order7" id="select_radio75" value="5" /><label for="select_radio75" >5</label>
+            <input type="radio" name="order7" id="select_radio76" value="6" /><label for="select_radio76" >6</label>
+            <input type="radio" name="order7" id="select_radio77" value="7" /><label for="select_radio77" >7</label>
+            <input type="radio" name="order7" id="select_radio78" value="8" /><label for="select_radio78" >8</label>
+            <input type="radio" name="order7" id="select_radio79" value="9" /><label for="select_radio79" >9</label>
+          </div>
+          <div id="radio8" hidden >
+            <label id="member8" ></label>
+            <input type="radio" name="order8" id="select_radio81" value="1" /><label for="select_radio81" >1</label>
+            <input type="radio" name="order8" id="select_radio82" value="2" /><label for="select_radio82" >2</label>
+            <input type="radio" name="order8" id="select_radio83" value="3" /><label for="select_radio83" >3</label>
+            <input type="radio" name="order8" id="select_radio84" value="4" /><label for="select_radio84" >4</label>
+            <input type="radio" name="order8" id="select_radio85" value="5" /><label for="select_radio85" >5</label>
+            <input type="radio" name="order8" id="select_radio86" value="6" /><label for="select_radio86" >6</label>
+            <input type="radio" name="order8" id="select_radio87" value="7" /><label for="select_radio87" >7</label>
+            <input type="radio" name="order8" id="select_radio88" value="8" /><label for="select_radio88" >8</label>
+            <input type="radio" name="order8" id="select_radio89" value="9" /><label for="select_radio89" >9</label>
+          </div>
+          <div id="radio9" hidden >
+            <label id="member9" ></label>
+            <input type="radio" name="order9" id="select_radio91" value="1" /><label for="select_radio91" >1</label>
+            <input type="radio" name="order9" id="select_radio92" value="2" /><label for="select_radio92" >2</label>
+            <input type="radio" name="order9" id="select_radio93" value="3" /><label for="select_radio93" >3</label>
+            <input type="radio" name="order9" id="select_radio94" value="4" /><label for="select_radio94" >4</label>
+            <input type="radio" name="order9" id="select_radio95" value="5" /><label for="select_radio95" >5</label>
+            <input type="radio" name="order9" id="select_radio96" value="6" /><label for="select_radio96" >6</label>
+            <input type="radio" name="order9" id="select_radio97" value="7" /><label for="select_radio97" >7</label>
+            <input type="radio" name="order9" id="select_radio98" value="8" /><label for="select_radio98" >8</label>
+            <input type="radio" name="order9" id="select_radio99" value="9" /><label for="select_radio99" >9</label>
+          </div><br/>
+          <button id="inModalButton" >enter</button>
+        </div>
+      </div>
+    </div>
   <div>
     <h2 class="memberAverage">Select Member's average</h2>
     <div class="teamAvg"><p>AVG:</p><p id="memberAvg"></p></div>
@@ -222,7 +339,7 @@
         <p id="right"></p>
       </div>
       <div>
-        <button id="print">print</button>
+        <button id="output">print</button>
       </div>
     </section>
   </div>
