@@ -711,10 +711,113 @@ function moveAll() {
 const moveAllButton = document.getElementById("moveAll");
 moveAllButton.addEventListener("click", moveAll);
 
-///// 印刷
-function print() {
-  // window.print();
+///// modal window
+const modal = document.querySelector(".js-modal"),
+open = document.querySelector(".js-modal-open"),
+close = document.querySelector(".js-modal-close");
+
+function modalOpen() {
+  modal.classList.add("is-active");
+}
+open.addEventListener("click",modalOpen);
+
+function modalClose() {
+  modal.classList.remove("is-active");
+}
+close.addEventListener("click", modalClose);
+
+function modalOut(e) {
+  if (e.target == modal) {
+    modal.classList.remove("is-active");
+  }
+}
+addEventListener("click", modalOut);
+
+///// モーダルウィンドウの中に表示させる名前
+function firstPlanSelect() {
+  let elements = document.getElementsByName("member");
+  const selectMemberNames = [];
+  
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i].checked) {
+      selectMemberNames.push(elements[i].value);
+    }
+  }
+
+  for (let j = 0; j < selectMemberNames.length; j++) {
+    const nameText = document.getElementById(`member${j + 1}`);
+    const radioBox = document.getElementById(`radio${j + 1}`);
+    radioBox.style.display = "inline-block";
+    nameText.innerText = selectMemberNames[j];
+  }
 }
 
-const printButton = document.getElementById("print");
-printButton.addEventListener("click", print);
+okButton.addEventListener("click", firstPlanSelect);
+
+///// 初期のオーダー配置
+function firstSetOrder() {
+  let checkValue = "";
+  
+  for (let j = 1; j < 10; j++) {
+    const modalOrder = document.getElementsByName(`order${j}`);
+    const modalOrderName = document.getElementById(`member${j}`);
+    let length = modalOrder.length;
+    for (let i = 0; i < length; i++) {
+      if (modalOrder.item(i).checked) {
+        checkValue = modalOrder.item(i).value;
+        const orderPosition = document.getElementById(`memberList${checkValue}`);
+        orderPosition.value = modalOrderName.innerText;
+      }
+    }
+  }
+}
+
+function defaultPosition() {
+  defaultPositionOne();
+  defaultPositionTwo();
+  defaultPositionThree();
+  defaultPositionFour();
+  defaultPositionFive();
+  defaultPositionSix();
+  defaultPositionSeven();
+  defaultPositionEight();
+  defaultPositionNine();
+}
+
+const modalOk = document.getElementById("inModalButton");
+modalOk.addEventListener("click", firstSetOrder);
+modalOk.addEventListener("click", defaultPosition);
+modalOk.addEventListener("click", modalClose);
+
+///// 印刷
+function output() {
+  const h1Hidden = document.getElementsByTagName("h1")[0];
+  const h2Hidden = document.getElementsByTagName("h2")[0];
+  const nameHidden = document.getElementsByClassName("memberName");
+  const okButtonHidden = document.getElementById("buttonM1");
+  const memberAvgHidden = document.getElementsByClassName("memberAverage")[0];
+  const memberAverageTextHidden = document.getElementsByClassName("teamAvg")[0];
+
+  h1Hidden.style.display = "none";
+  h2Hidden.style.display = "none";
+  okButtonHidden.style.display = "none";
+  memberAvgHidden.style.display = "none";
+  memberAverageTextHidden.style.display = "none";
+  for (const name of nameHidden) {
+    name.style.display = "none";
+  }
+  
+  print();
+
+  h1Hidden.style.display = "";
+  h2Hidden.style.display = "";
+  okButtonHidden.style.display = "";
+  memberAvgHidden.style.display = "";
+  memberAverageTextHidden.style.display = "";
+  for (const name of nameHidden) {
+    name.style.display = "";
+  }
+}
+
+const printButton = document.getElementById("output");
+printButton.addEventListener("click", output);
