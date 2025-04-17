@@ -21,7 +21,11 @@ function avg(name, num) {
     }
   }
   average = sumHit / sumAtBat;
-  return `${average.toFixed(3)} (${sumAtBat} - ${sumHit})`;
+  if (sumAtBat !== 0) {
+    return `${average.toFixed(3)} (${sumAtBat} - ${sumHit})`;
+  } else {
+    return "No Data";
+  }
 }
 
 // test(avg("Fujita", 2), 0.143);
@@ -81,7 +85,11 @@ function obp(name, num) {
     }
   }
   onBasePercent = onBase / denominator;
-  return onBasePercent.toFixed(3);
+  if (denominator !== 0) {
+    return onBasePercent.toFixed(3);
+  } else {
+    return "No Data";
+  }
 }
 
 ///// Slugging Percentage 長打率
@@ -104,7 +112,11 @@ function slg(name, num) {
     }
   }
   slugging = numberOfBase / sumAtBat;
-  return slugging.toFixed(3);
+  if (sumAtBat !== 0) {
+    return slugging.toFixed(3);
+  } else {
+    return "No Data";
+  }
 }
 
 ///// Home Run
@@ -330,18 +342,29 @@ const personalPosition = {"黒川": "P", "藤田": "C", "杉浦": "3B", "米田"
 function fontColor(num) {
   const getAvg = document.getElementById(`avg${num}`);
   const getObp = document.getElementById(`obp${num}`);
+  const getSlg = document.getElementById(`slg${num}`);
   const getHr = document.getElementById(`hr${num}`);
   const changeColorAvg = getAvg.innerText.substring(0, 5);
   if (changeColorAvg >= 0.300) {
     getAvg.style.color = "red";
+  } else if (changeColorAvg === "No Da") {
+    getAvg.style.color = "gray";
   } else {
     getAvg.style.color = "black";
   }
 
   if (getObp.innerText >= 0.350) {
     getObp.style.color = "red";
+  } else if (getObp.innerText === "No Data") {
+    getObp.style.color = "gray";
   } else {
     getObp.style.color = "black";
+  }
+
+  if (getSlg.innerText === "No Data") {
+    getSlg.style.color = "gray";
+  } else {
+    getSlg.style.color = "black";
   }
 
   if (getHr.innerText > 0) {
@@ -793,16 +816,22 @@ modalOk.addEventListener("click", modalClose);
 function output() {
   const h1Hidden = document.getElementsByTagName("h1")[0];
   const h2Hidden = document.getElementsByTagName("h2")[0];
+  const selectHidden = document.getElementById("counter");
+  const selectedHidden = document.getElementById("counterValue");
   const nameHidden = document.getElementsByClassName("memberName");
   const okButtonHidden = document.getElementById("buttonM1");
   const memberAvgHidden = document.getElementsByClassName("memberAverage")[0];
   const memberAverageTextHidden = document.getElementsByClassName("teamAvg")[0];
+  const maxNum = document.getElementById("maxStatsNumber");
 
   h1Hidden.style.display = "none";
   h2Hidden.style.display = "none";
+  selectHidden.style.display = "none";
+  selectedHidden.style.display = "none";
   okButtonHidden.style.display = "none";
   memberAvgHidden.style.display = "none";
   memberAverageTextHidden.style.display = "none";
+  maxNum.style.display = "none";
   for (const name of nameHidden) {
     name.style.display = "none";
   }
@@ -811,9 +840,12 @@ function output() {
 
   h1Hidden.style.display = "";
   h2Hidden.style.display = "";
+  selectHidden.style.display = "";
+  selectedHidden.style.display = "";
   okButtonHidden.style.display = "";
   memberAvgHidden.style.display = "";
   memberAverageTextHidden.style.display = "";
+  maxNum.style.display = "";
   for (const name of nameHidden) {
     name.style.display = "";
   }
@@ -821,3 +853,28 @@ function output() {
 
 const printButton = document.getElementById("output");
 printButton.addEventListener("click", output);
+
+///// メンバー選択数を表示する
+function selectNumber() {
+  const selected = document.getElementById("counterValue");
+  let elements = document.getElementsByName("member");
+  let counter = 0;
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i].checked) {
+      counter += 1;
+    }
+  }
+  selected.innerText = counter;
+}
+
+for (let j = 0; j < 15; j++) {
+const checkedMember = document.getElementsByClassName("memberName")[j];
+checkedMember.addEventListener("change", selectNumber);
+}
+
+///// 最大試合数表示
+function maxGameNumber() {
+  const maxNum = document.getElementById("maxStatsNumber");
+  maxNum.innerText = `max: ${record.length}`;
+}
+maxGameNumber();
