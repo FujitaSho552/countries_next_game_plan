@@ -3,6 +3,19 @@ div.mainContent{
   flex-direction: row;
   justify-content: flex-start;
 }
+
+#counter {
+  position: absolute;
+  top: 90px;
+  left: 150px;
+}
+
+#counterValue {
+  position: absolute;
+  top: 90px;
+  left: 210px;
+}
+
 /*///// modal window /////*/
 /* モーダルと背景の指定 */
 .modal {
@@ -220,6 +233,12 @@ div.diffence {
   width: 500px;
   height: 500px;
   margin-left: 20px;
+}
+
+#maxStatsNumber {
+  position: absolute;
+  top: -80px;
+  left: -285px;
 }
 
 #pitcher {
