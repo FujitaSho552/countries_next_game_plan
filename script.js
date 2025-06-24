@@ -369,8 +369,10 @@ function fontColor(num) {
 
   if (getHr.innerText > 0) {
     getHr.style.color = "red";
+    getHr.style.fontWeight = "bold";
   } else {
     getHr.style.color = "black";
+    getHr.style.fontWeight = "normal";
   }
 }
 
