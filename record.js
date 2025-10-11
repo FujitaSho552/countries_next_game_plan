@@ -1,4 +1,142 @@
 const record = [
+  [  // 2025.10.5
+    {
+      "黒川" : {
+        PA: 1,
+        atBat: 1,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 0,
+      }
+    },
+    {
+      "藤田" : {
+        PA: 2,
+        atBat: 1,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 1,
+        K: 0,
+      }  
+    },
+    {
+      "杉浦" : {
+        PA: 1,
+        atBat: 1,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 0,
+      }
+    },
+    {
+      "田前" : {
+        PA: 1,
+        atBat: 1,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 0,
+      }
+    },
+    {
+      "鬼塚" : {
+        PA: 1,
+        atBat: 1,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 1,
+      }
+    },
+    {
+      "下町" : {
+        PA: 1,
+        atBat: 0,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 1,
+        K: 0,
+      }
+    },
+    {
+      "西" : {
+        PA: 2,
+        atBat: 2,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 0,
+      }
+    },
+    {
+      "前野" : {
+        PA: 1,
+        atBat: 1,
+        single: 1,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 0,
+      }
+    },
+  ],
   [  // 2025.9.14
     {
       "黒川" : {
