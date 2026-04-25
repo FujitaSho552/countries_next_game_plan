@@ -1,10 +1,165 @@
 const record = [
+  [  // 2026.4.12
+    {
+      "黒川" : {
+        PA: 3,
+        atBat: 1,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 1,
+        BB: 2,
+        K: 0,
+      }
+    },
+    {
+      "藤田" : {
+        PA: 4,
+        atBat: 2,
+        single: 1,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 2,
+        BB: 2,
+        K: 0,
+      }  
+    },
+    {
+      "杉浦" : {
+        PA: 3,
+        atBat: 2,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 1,
+        K: 2,
+      }
+    },
+    {
+      "米田" : {
+        PA: 3,
+        atBat: 3,
+        single: 0,
+        double: 1,
+        triple: 0,
+        HR: 0,
+        RBI: 3,
+        clutchHit: 1,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 0,
+        K: 0,
+      }
+    },
+    {
+      "久木田" : {
+        PA: 3,
+        atBat: 2,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 1,
+        BB: 1,
+        K: 1,
+      }
+    },
+    {
+      "下町" : {
+        PA: 4,
+        atBat: 3,
+        single: 1,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 1,
+        clutchHit: 1,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 1,
+        BB: 1,
+        K: 1,
+      }
+    },
+    {
+      "西" : {
+        PA: 3,
+        atBat: 2,
+        single: 1,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 1,
+        clutchHit: 1,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 1,
+        K: 0,
+      }
+    },
+    {
+      "比嘉" : {
+        PA: 3,
+        atBat: 2,
+        single: 1,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 1,
+        K: 0,
+      }
+    },
+    {
+      "前野" : {
+        PA: 3,
+        atBat: 2,
+        single: 0,
+        double: 0,
+        triple: 0,
+        HR: 0,
+        RBI: 0,
+        clutchHit: 0,
+        sucrificeBunt: 0,
+        sucrificefly: 0,
+        SB: 0,
+        BB: 1,
+        K: 1,
+      }
+    },
+  ],
   [  // 2026.3.1
     {
       "黒川" : {
         PA: 2,
         atBat: 2,
-        single: 1,
+        single: 0,
         double: 0,
         triple: 0,
         HR: 0,
